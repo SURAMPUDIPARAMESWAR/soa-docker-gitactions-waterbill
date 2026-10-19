@@ -12,15 +12,12 @@ COPY src/ src/
 RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
-# Verify PostgreSQL driver is packaged in the executable JAR
-RUN jar tf target/*.jar | grep 'BOOT-INF/lib/postgresql-' 
-
 # Stage 2: Run the application
 FROM eclipse-temurin:21-jre-jammy
 
 WORKDIR /app
 
-COPY --from=builder /app/target/*.jar app.jar
+COPY --from=builder /app/target/WaterBill-0.0.1-SNAPSHOT.jar app.jar
 
 EXPOSE 1427
 

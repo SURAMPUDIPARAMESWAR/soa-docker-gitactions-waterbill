@@ -4,6 +4,7 @@ package com.klef.soa.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,6 +21,7 @@ import com.klef.soa.service.WaterBillService;
 
 @RestController
 @RequestMapping("/waterbill")
+@CrossOrigin(origins = {"http://localhost:3004", "http://localhost:5173"})
 public class WaterBillController {
 	
 	@Autowired

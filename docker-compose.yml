@@ -22,6 +22,9 @@ services:
 
   backend:
     image: parameswar1427/docker-git-actions-task-backend:latest
+    build:
+      context: ./WaterBill
+      dockerfile: backend.Dockerfile
     container_name: docker-springboot
     ports:
       - "2007:1427"
@@ -39,6 +42,9 @@ services:
 
   frontend:
     image: parameswar1427/docker-git-actions-task-frontend:latest
+    build:
+      context: ./waterbill-frontend
+      dockerfile: frontend.Dockerfile
     container_name: docker-react
     ports:
       - "3004:80"

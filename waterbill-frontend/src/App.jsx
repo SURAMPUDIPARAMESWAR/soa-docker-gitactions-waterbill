@@ -15,7 +15,7 @@ import {
 const emptyBill = { holderName: '', type: 'Residential', status: 'Pending', location: '' };
 const statuses = ['Pending', 'Paid', 'Overdue'];
 const types = ['Residential', 'Commercial', 'Industrial'];
-const API_URL = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+const API_URL = (import.meta.env.VITE_API_URL || 'http://localhost:2007').replace(/\/$/, '');
 
 async function request(path, options = {}) {
   const response = await fetch(`${API_URL}${path}`, {
